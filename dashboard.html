@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | E-Cure Earth</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none">
+        <div class="logo-icon">♻️</div>
+        E-Cure <span class="logo-accent">Earth</span>
+      </a>
+      <div class="nav-auth" id="nav-auth"></div>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="sidebar-avatar">U</div>
+        <div class="sidebar-name" id="sidebar-name">Loading…</div>
+        <div class="sidebar-plan">🌱 Free Plan</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-title">Main</div>
+        <a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="marketplace.html"><i class="fas fa-store"></i> Marketplace</a>
+        <a href="collectors.html"><i class="fas fa-map-marker-alt"></i> Find Collectors</a>
+
+        <div class="sidebar-section-title">Account</div>
+        <a href="pricing.html"><i class="fas fa-crown"></i> Upgrade Plan</a>
+        <a href="#" id="sidebar-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="dash-header">
+        <div>
+          <h1>Welcome back, <span id="dash-username">User</span>! 👋</h1>
+          <p>Here's your environmental impact summary.</p>
+        </div>
+        <div class="dash-header-right">
+          <a href="collectors.html" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus"></i> Schedule Pickup
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-cards">
+        <div class="glass-card stat-card">
+          <div class="stat-card-top">
+            <div>
+              <div class="stat-card-label">Devices Recycled</div>
+              <div class="stat-card-value" id="stat-devices">0</div>
+            </div>
+            <div class="stat-card-icon green"><i class="fas fa-mobile-alt"></i></div>
+          </div>
+          <div class="stat-card-change"><i class="fas fa-arrow-up"></i> Updated live</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-card-top">
+            <div>
+              <div class="stat-card-label">Total Weight</div>
+              <div class="stat-card-value" id="stat-weight">0 kg</div>
+            </div>
+            <div class="stat-card-icon teal"><i class="fas fa-weight-hanging"></i></div>
+          </div>
+          <div class="stat-card-change">Materials diverted from landfill</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-card-top">
+            <div>
+              <div class="stat-card-label">CO₂ Saved</div>
+              <div class="stat-card-value" id="stat-co2">0 kg</div>
+            </div>
+            <div class="stat-card-icon blue"><i class="fas fa-leaf"></i></div>
+          </div>
+          <div class="stat-card-change">Carbon emissions prevented</div>
+        </div>
+        <div class="glass-card stat-card">
+          <div class="stat-card-top">
+            <div>
+              <div class="stat-card-label">Green Points</div>
+              <div class="stat-card-value" id="stat-points">0</div>
+            </div>
+            <div class="stat-card-icon yellow"><i class="fas fa-star"></i></div>
+          </div>
+          <div class="stat-card-change text-green">Redeemable for rewards</div>
+        </div>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="dash-grid">
+        <!-- Activity Feed -->
+        <div class="glass-card dash-panel">
+          <h2><i class="fas fa-history" style="color:var(--green-400);margin-right:8px"></i>Recent Pickups</h2>
+          <div id="activity-list">
+            <div class="loading-state"><div class="spinner"></div><p>Loading activity…</p></div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="glass-card dash-panel">
+          <h2><i class="fas fa-bolt" style="color:var(--green-400);margin-right:8px"></i>Quick Actions</h2>
+          <div class="quick-actions-grid">
+            <a href="collectors.html" class="quick-action-btn">
+              <i class="fas fa-calendar-check"></i> Schedule Pickup
+            </a>
+            <a href="marketplace.html" class="quick-action-btn">
+              <i class="fas fa-store"></i> Sell a Device
+            </a>
+            <a href="impacts.html" class="quick-action-btn">
+              <i class="fas fa-info-circle"></i> Learn About Impact
+            </a>
+            <a href="pricing.html" class="quick-action-btn">
+              <i class="fas fa-crown"></i> Upgrade to Pro
+            </a>
+          </div>
+
+          <!-- Impact Summary Card -->
+          <div style="margin-top:20px;padding:18px;background:rgba(34,197,94,0.06);border:1px solid var(--border-green);border-radius:var(--radius-md)">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--green-400);margin-bottom:8px">🌍 YOUR IMPACT EQUIVALENTS</div>
+            <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.9" id="impact-equiv">
+              Start recycling to see your impact here!
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('sidebar-logout')?.addEventListener('click', e => {
+      e.preventDefault();
+      logoutUser();
+    });
+    // Extra: update impact equivalents after data loads
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const co2 = parseFloat(document.getElementById('stat-co2')?.textContent) || 0;
+        const equiv = document.getElementById('impact-equiv');
+        if (equiv && co2 > 0) {
+          equiv.innerHTML = `
+            🌳 Trees equivalent: <strong>${(co2/21).toFixed(1)}</strong><br>
+            🚗 Km not driven: <strong>${(co2*4.5).toFixed(0)}</strong><br>
+            💡 Days of energy saved: <strong>${(co2/0.5).toFixed(0)}</strong>
+          `;
+        }
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

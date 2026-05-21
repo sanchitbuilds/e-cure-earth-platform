@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | E-Cure Earth</title>
+  <meta name="description" content="Choose the right E-Cure Earth plan for your recycling needs. Free, Pro, and Business tiers available.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none">
+        <div class="logo-icon">♻️</div>
+        E-Cure <span class="logo-accent">Earth</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="impacts.html">Impacts</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="collectors.html">Collectors</a>
+        <a href="pricing.html" class="active">Pricing</a>
+      </div>
+      <div class="nav-auth" id="nav-auth"></div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="section-label">Simple, Transparent Pricing</div>
+    <h1>Choose Your <span style="background:linear-gradient(135deg,var(--green-400),var(--teal-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Green Plan</span></h1>
+    <p>Start free, upgrade as you grow. No hidden fees, no long-term contracts.</p>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section">
+    <div class="container">
+      <!-- Billing Toggle -->
+      <div class="pricing-toggle">
+        <span id="toggle-monthly" style="color:var(--text-primary)">Monthly</span>
+        <div class="toggle-switch" id="billing-toggle" onclick="toggleBilling()"></div>
+        <span id="toggle-yearly" style="color:var(--text-muted)">Yearly</span>
+        <span class="pricing-save-badge">Save 33%</span>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-cards">
+        <!-- Free -->
+        <div class="glass-card pricing-card">
+          <div class="pricing-plan-name">Free</div>
+          <div class="pricing-price">
+            <sup>₹</sup>0<span>/mo</span>
+          </div>
+          <p class="pricing-desc">Perfect for individuals who want to start recycling responsibly.</p>
+          <a href="auth.html?signup=true" class="btn btn-secondary pricing-cta">Get Started Free</a>
+          <div class="pricing-divider"></div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> 2 pickups per month</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Basic impact dashboard</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Marketplace access (buy)</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Community chat</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Sell on marketplace</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Priority collector matching</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Data destruction certificate</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Advanced analytics</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> API access</div>
+        </div>
+
+        <!-- Pro (Popular) -->
+        <div class="glass-card pricing-card popular">
+          <div class="popular-badge">⭐ Most Popular</div>
+          <div class="pricing-plan-name" style="color:var(--green-400)">Pro</div>
+          <div class="pricing-price">
+            <sup>₹</sup>
+            <span id="pro-price" style="font-size:2.8rem;font-weight:900;-webkit-text-fill-color:unset">749</span>
+            <span id="pro-period">/mo</span>
+          </div>
+          <p class="pricing-desc">Best for eco-conscious individuals and small households with regular recycling needs.</p>
+          <a href="auth.html?signup=true&plan=pro" class="btn btn-primary pricing-cta">
+            <i class="fas fa-leaf"></i> Start Pro Trial
+          </a>
+          <div class="pricing-divider"></div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Unlimited pickups</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Full impact dashboard + charts</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> <strong>Sell on marketplace</strong></div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Priority collector matching</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Data destruction certificate</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> 2x Green Points multiplier</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Email support</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Business analytics</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> API access</div>
+          <div class="pricing-feature" style="color:var(--text-muted)"><i class="fas fa-times"></i> Dedicated manager</div>
+        </div>
+
+        <!-- Business -->
+        <div class="glass-card pricing-card">
+          <div class="pricing-plan-name">Business</div>
+          <div class="pricing-price">
+            <sup>₹</sup>
+            <span id="biz-price" style="font-size:2.8rem;font-weight:900;-webkit-text-fill-color:unset">2499</span>
+            <span id="biz-period">/mo</span>
+          </div>
+          <p class="pricing-desc">For businesses, corporates, and institutions with bulk e-waste management needs.</p>
+          <a href="mailto:sales@ecure.earth" class="btn btn-ghost pricing-cta">Contact Sales</a>
+          <div class="pricing-divider"></div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Everything in Pro</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Bulk pickup scheduling</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Business analytics dashboard</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> <strong>REST API access</strong></div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> CSR compliance reports</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Dedicated account manager</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> 5x Green Points multiplier</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> White-label reports</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Priority 24/7 support</div>
+          <div class="pricing-feature"><i class="fas fa-check"></i> Multi-user accounts</div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-top:80px;max-width:700px;margin-left:auto;margin-right:auto">
+        <div class="text-center" style="margin-bottom:40px">
+          <h2 class="section-title">Frequently Asked <span class="highlight">Questions</span></h2>
+        </div>
+        <div id="faq-list"></div>
+      </div>
+
+      <!-- Compare Table -->
+      <div style="margin-top:70px;overflow-x:auto">
+        <div class="text-center" style="margin-bottom:32px">
+          <h2 class="section-title">Full Feature <span class="highlight">Comparison</span></h2>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.88rem">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border)">
+              <th style="text-align:left;padding:14px 16px;color:var(--text-secondary)">Feature</th>
+              <th style="text-align:center;padding:14px;color:var(--text-secondary)">Free</th>
+              <th style="text-align:center;padding:14px;color:var(--green-400)">Pro</th>
+              <th style="text-align:center;padding:14px;color:var(--text-secondary)">Business</th>
+            </tr>
+          </thead>
+          <tbody id="compare-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Still Unsure? <span style="background:linear-gradient(135deg,var(--green-400),var(--teal-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Start Free</span></h2>
+      <p>No credit card required. Upgrade or cancel anytime. Join 500+ users making a difference.</p>
+      <div class="cta-buttons">
+        <a href="auth.html?signup=true" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Get Started Free</a>
+        <a href="mailto:support@ecure.earth" class="btn btn-secondary btn-lg"><i class="fas fa-envelope"></i> Talk to Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">♻️</div>E-Cure <span class="logo-accent">Earth</span></div>
+          <p>Simple, transparent pricing for every recycler.</p>
+        </div>
+        <div class="footer-col"><h4>Platform</h4><ul>
+          <li><a href="marketplace.html">Marketplace</a></li>
+          <li><a href="collectors.html">Find Collectors</a></li>
+          <li><a href="impacts.html">Impacts</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Support</h4><ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="mailto:support@ecure.earth">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 E-Cure Earth</span>
+        <span>Made with 💚 for the planet</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+  <script>
+    let isYearly = false;
+
+    function toggleBilling() {
+      isYearly = !isYearly;
+      const toggle = document.getElementById('billing-toggle');
+      toggle.classList.toggle('yearly', isYearly);
+      document.getElementById('toggle-monthly').style.color = isYearly ? 'var(--text-muted)' : 'var(--text-primary)';
+      document.getElementById('toggle-yearly').style.color = isYearly ? 'var(--text-primary)' : 'var(--text-muted)';
+
+      document.getElementById('pro-price').textContent = isYearly ? '499' : '749';
+      document.getElementById('pro-period').textContent = isYearly ? '/mo · billed yearly' : '/mo';
+      document.getElementById('biz-price').textContent = isYearly ? '1669' : '2499';
+      document.getElementById('biz-period').textContent = isYearly ? '/mo · billed yearly' : '/mo';
+    }
+
+    // FAQ Data
+    const faqs = [
+      { q: "Is the free plan really free?", a: "Yes! The Free plan is completely free with no credit card required. It includes 2 pickups per month and full marketplace buyer access." },
+      { q: "Can I cancel my subscription anytime?", a: "Absolutely. There are no long-term contracts. Cancel from your account settings at any time — you'll retain access until the billing period ends." },
+      { q: "What happens to my Green Points if I downgrade?", a: "Your Green Points are yours forever and never expire. They remain in your account regardless of your plan." },
+      { q: "Do you offer discounts for NGOs or schools?", a: "Yes! We offer 50% off for registered NGOs, educational institutions, and government bodies. Contact us at sales@ecure.earth." },
+      { q: "Is my data secure?", a: "All data is encrypted at rest and in transit. JWT-based authentication ensures only you can access your account. Certified collectors follow data destruction protocols." }
+    ];
+
+    document.getElementById('faq-list').innerHTML = faqs.map((f, i) => `
+      <div style="border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:10px;overflow:hidden">
+        <button onclick="toggleFaq(${i})" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--bg-elevated);border:none;color:var(--text-primary);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;text-align:left">
+          ${f.q}
+          <i class="fas fa-chevron-down" id="faq-icon-${i}" style="color:var(--text-muted);transition:all 0.3s;flex-shrink:0;margin-left:12px"></i>
+        </button>
+        <div id="faq-ans-${i}" style="display:none;padding:14px 20px 16px;font-size:0.88rem;color:var(--text-secondary);line-height:1.7;background:var(--bg-surface);border-top:1px solid var(--border)">${f.a}</div>
+      </div>
+    `).join('');
+
+    function toggleFaq(i) {
+      const ans = document.getElementById(`faq-ans-${i}`);
+      const icon = document.getElementById(`faq-icon-${i}`);
+      const isOpen = ans.style.display !== 'none';
+      ans.style.display = isOpen ? 'none' : 'block';
+      icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+    }
+
+    // Compare Table
+    const rows = [
+      ['Pickups per month', '2', 'Unlimited', 'Unlimited'],
+      ['Impact Dashboard', '✓ Basic', '✓ Full', '✓ Advanced'],
+      ['Marketplace Selling', '✗', '✓', '✓'],
+      ['Priority Matching', '✗', '✓', '✓'],
+      ['Data Destruction Cert.', '✗', '✓', '✓'],
+      ['Green Points Multiplier', '1×', '2×', '5×'],
+      ['API Access', '✗', '✗', '✓'],
+      ['CSR Reports', '✗', '✗', '✓'],
+      ['Multi-User', '1 user', '1 user', '50 users'],
+      ['Support', 'Community', 'Email', '24/7 Priority'],
+    ];
+
+    document.getElementById('compare-table').innerHTML = rows.map((r, i) => `
+      <tr style="border-bottom:1px solid var(--border);background:${i%2===0?'var(--bg-surface)':'transparent'}">
+        <td style="padding:13px 16px;color:var(--text-secondary)">${r[0]}</td>
+        <td style="padding:13px;text-align:center;color:${r[1]==='✗'?'var(--text-muted)':'var(--text-primary)'}">${r[1]}</td>
+        <td style="padding:13px;text-align:center;color:${r[2]==='✗'?'var(--text-muted)':'var(--green-400)';font-weight:600}">${r[2]}</td>
+        <td style="padding:13px;text-align:center;color:${r[3]==='✗'?'var(--text-muted)':'var(--text-primary)'}">${r[3]}</td>
+      </tr>
+    `).join('');
+  </script>
+</body>
+</html>

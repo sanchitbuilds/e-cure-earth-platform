@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace | E-Cure Earth</title>
+  <meta name="description" content="Buy and sell used electronics on India's most trusted e-waste marketplace.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none">
+        <div class="logo-icon">♻️</div>
+        E-Cure <span class="logo-accent">Earth</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="impacts.html">Impacts</a>
+        <a href="marketplace.html" class="active">Marketplace</a>
+        <a href="collectors.html">Collectors</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="nav-auth" id="nav-auth"></div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="section-label">Electronics Marketplace</div>
+    <h1>Buy & Sell <span style="background:linear-gradient(135deg,var(--green-400),var(--teal-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Used Electronics</span></h1>
+    <p>Give devices a second life. Trusted by thousands of buyers and sellers across India.</p>
+  </section>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="container">
+      <input class="filter-input" type="text" id="mp-search" placeholder="🔍  Search listings…">
+      <select class="filter-select" id="mp-category">
+        <option value="all">All Categories</option>
+        <option value="laptops">💻 Laptops</option>
+        <option value="phones">📱 Phones</option>
+        <option value="tablets">📟 Tablets</option>
+        <option value="accessories">🔌 Accessories</option>
+        <option value="other">📦 Other</option>
+      </select>
+      <select class="filter-select" id="mp-location">
+        <option value="all">All Regions</option>
+        <option value="north">North</option>
+        <option value="south">South</option>
+        <option value="east">East</option>
+        <option value="west">West</option>
+      </select>
+      <button class="btn btn-primary btn-sm" id="add-listing-btn">
+        <i class="fas fa-plus"></i> Add Listing
+      </button>
+    </div>
+  </div>
+
+  <!-- Listings Grid -->
+  <section style="padding:0 0 60px">
+    <div class="container">
+      <div class="listing-grid" id="listing-grid">
+        <div class="loading-state" style="grid-column:1/-1">
+          <div class="spinner"></div>
+          <p>Loading listings…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Listing Modal -->
+  <div class="modal-overlay" id="listing-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+      <h2>📦 Add New Listing</h2>
+      <form id="listingForm" novalidate>
+        <div class="form-group">
+          <label>Title *</label>
+          <input class="input-field" type="text" id="lf-title" placeholder="e.g. Dell Inspiron 15" required>
+        </div>
+        <div class="form-group">
+          <label>Category *</label>
+          <select class="input-field" id="lf-category" required>
+            <option value="">Select Category</option>
+            <option value="laptops">💻 Laptops</option>
+            <option value="phones">📱 Phones</option>
+            <option value="tablets">📟 Tablets</option>
+            <option value="accessories">🔌 Accessories</option>
+            <option value="other">📦 Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Price (₹) *</label>
+          <input class="input-field" type="number" id="lf-price" placeholder="e.g. 5000" min="1" required>
+        </div>
+        <div class="form-group">
+          <label>Region *</label>
+          <select class="input-field" id="lf-location" required>
+            <option value="">Select Region</option>
+            <option value="north">North</option>
+            <option value="south">South</option>
+            <option value="east">East</option>
+            <option value="west">West</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="input-field" id="lf-description" rows="3" placeholder="Condition, specs, accessories included…" style="resize:vertical"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-full mt-16">
+          <i class="fas fa-check"></i> Submit Listing
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">♻️</div>E-Cure <span class="logo-accent">Earth</span></div>
+          <p>India's trusted e-waste marketplace and recycling platform.</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collectors.html">Collectors</a></li>
+          <li><a href="impacts.html">Impacts</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Support</h4><ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 E-Cure Earth</span>
+        <span>Made with 💚 for the planet</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>

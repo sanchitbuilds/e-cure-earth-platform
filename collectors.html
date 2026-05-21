@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Collectors | E-Cure Earth</title>
+  <meta name="description" content="Find certified e-waste collectors near you and schedule a free doorstep pickup.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none">
+        <div class="logo-icon">♻️</div>
+        E-Cure <span class="logo-accent">Earth</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="impacts.html">Impacts</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="collectors.html" class="active">Collectors</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="nav-auth" id="nav-auth"></div>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="section-label">Certified Partners</div>
+    <h1>Find <span style="background:linear-gradient(135deg,var(--green-400),var(--teal-400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">E-Waste Collectors</span></h1>
+    <p>All partners are government-certified and follow safe data destruction protocols.</p>
+  </section>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <div class="container">
+      <input class="filter-input" type="text" id="col-search" placeholder="🔍  Search by name or city…">
+      <select class="filter-select" id="col-location">
+        <option value="all">All Regions</option>
+        <option value="north">North India</option>
+        <option value="south">South India</option>
+        <option value="east">East India</option>
+        <option value="west">West India</option>
+      </select>
+      <label class="flex-center gap-8" style="font-size:0.85rem;color:var(--text-secondary);cursor:pointer">
+        <input type="checkbox" id="col-pickup" style="accent-color:var(--green-500)">
+        Pickup only
+      </label>
+    </div>
+  </div>
+
+  <!-- Collectors Grid -->
+  <section style="padding:0 0 70px">
+    <div class="container">
+      <div class="collectors-grid" id="collectors-grid">
+        <div class="loading-state" style="grid-column:1/-1">
+          <div class="spinner"></div>
+          <p>Finding collectors near you…</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Pickup Modal -->
+  <div class="modal-overlay" id="schedule-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-sch"><i class="fas fa-times"></i></button>
+      <h2>📅 Schedule Pickup</h2>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:20px">
+        Scheduling with <strong id="sch-collector-label">Collector</strong>
+      </p>
+      <form id="scheduleForm" novalidate>
+        <input type="hidden" id="sch-collector-id">
+        <input type="hidden" id="sch-collector-name">
+        <div class="form-group">
+          <label>Pickup Address *</label>
+          <input class="input-field" type="text" id="sch-address" placeholder="123 Green Lane, Delhi" required>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date *</label>
+          <input class="input-field" type="date" id="sch-date" required>
+        </div>
+        <div class="form-group">
+          <label>Number of Devices</label>
+          <input class="input-field" type="number" id="sch-devices" value="1" min="1" max="50">
+        </div>
+        <div class="form-group">
+          <label>Estimated Weight (kg)</label>
+          <input class="input-field" type="number" id="sch-weight" value="2.5" min="0.1" step="0.1">
+        </div>
+        <div style="padding:14px;background:rgba(34,197,94,0.06);border:1px solid var(--border-green);border-radius:var(--radius-md);margin-bottom:16px;font-size:0.85rem;color:var(--text-secondary)">
+          🌱 Your pickup will save approximately <strong style="color:var(--green-400)" id="co2-estimate">6.25 kg</strong> of CO₂ emissions.
+        </div>
+        <button type="submit" class="btn btn-primary w-full">
+          <i class="fas fa-calendar-check"></i> Confirm Pickup
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-icon">♻️</div>E-Cure <span class="logo-accent">Earth</span></div>
+          <p>Connecting you with certified e-waste collectors across India.</p>
+        </div>
+        <div class="footer-col"><h4>Navigate</h4><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="marketplace.html">Marketplace</a></li>
+          <li><a href="impacts.html">Impacts</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 E-Cure Earth</span>
+        <span>Made with 💚 for the planet</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+  <script>
+    // Live CO2 estimate
+    const weightInput = document.getElementById('sch-weight');
+    const est = document.getElementById('co2-estimate');
+    weightInput?.addEventListener('input', () => {
+      const kg = parseFloat(weightInput.value) || 0;
+      if (est) est.textContent = (kg * 2.5).toFixed(2) + ' kg';
+    });
+    // Set min date to tomorrow
+    const dateInput = document.getElementById('sch-date');
+    if (dateInput) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      dateInput.min = tomorrow.toISOString().split('T')[0];
+    }
+  </script>
+</body>
+</html>

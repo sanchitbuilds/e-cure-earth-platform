@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | E-Cure Earth</title>
+  <meta name="description" content="Sign in or create your E-Cure Earth account to start recycling responsibly.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+  <!-- Minimal nav -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none">
+        <div class="logo-icon">♻️</div>
+        E-Cure <span class="logo-accent">Earth</span>
+      </a>
+      <a href="index.html" style="font-size:0.85rem;color:var(--text-secondary);display:flex;align-items:center;gap:6px">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </nav>
+
+  <div class="auth-wrapper">
+    <div class="glass-card auth-card">
+      <!-- Toggle -->
+      <div class="auth-toggle">
+        <button class="auth-toggle-btn active" id="showSigninBtn">Sign In</button>
+        <button class="auth-toggle-btn" id="showSignupBtn">Create Account</button>
+      </div>
+
+      <!-- Sign In -->
+      <div id="signin-form">
+        <h1>Welcome Back 👋</h1>
+        <p class="sub">Sign in to your E-Cure Earth account</p>
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="loginEmail">Email Address</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input class="input-field" type="email" id="loginEmail" placeholder="you@example.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input class="input-field" type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+              <i class="fas fa-eye toggle-password"></i>
+            </div>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <div class="error-msg" id="loginError"></div>
+          <button type="submit" class="btn btn-primary auth-submit">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+          </button>
+        </form>
+        <div class="auth-divider">or continue with</div>
+        <div class="oauth-btns">
+          <button class="oauth-btn" onclick="toast('Google OAuth coming soon!','info')"><i class="fab fa-google"></i> Google</button>
+          <button class="oauth-btn" onclick="toast('GitHub OAuth coming soon!','info')"><i class="fab fa-github"></i> GitHub</button>
+        </div>
+      </div>
+
+      <!-- Sign Up -->
+      <div id="signup-form" style="display:none">
+        <h1>Join E-Cure Earth 🌍</h1>
+        <p class="sub">Create a free account and start making an impact</p>
+        <form id="signupForm" novalidate>
+          <div class="form-group">
+            <label for="signupName">Full Name</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user input-icon"></i>
+              <input class="input-field" type="text" id="signupName" placeholder="Arjun Sharma" required autocomplete="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email Address</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input class="input-field" type="email" id="signupEmail" placeholder="you@example.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input class="input-field" type="password" id="signupPassword" placeholder="Min 8 characters" required autocomplete="new-password">
+              <i class="fas fa-eye toggle-password"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupConfirm">Confirm Password</label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock input-icon"></i>
+              <input class="input-field" type="password" id="signupConfirm" placeholder="Repeat password" required autocomplete="new-password">
+              <i class="fas fa-eye toggle-password"></i>
+            </div>
+          </div>
+          <div class="error-msg" id="signupError"></div>
+          <button type="submit" class="btn btn-primary auth-submit">
+            <i class="fas fa-leaf"></i> Create Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
